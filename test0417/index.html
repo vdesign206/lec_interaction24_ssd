@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    // for in 반복문(요소의 인덱스를 반복)
+    const todos = ['우유구매', '업무메일확인하기', '필라테스수업'];
+    
+    for (const i in todos) {
+      console.log(i);
+      console.log(todos[i]);
+      console.log(`${i}번째 할 일:${todos[i]}`);
+    }
+
+    // for of 반복문(요소의 값을 반복)
+    const todos2 = ['우유구매', '업무메일확인하기', '필라테스수업'];
+    for (const todo of todos2) {
+      console.log(`오늘의 할 일: ${todo}`)
+    }
+    // for 반복문
+    for(let i = 0; i < 5 ; i++) {
+      console.log(`${i}번째 반복입니다.`);
+    }
+
+    // 1부터 N까지 더하기
+    let output = 0;
+    for (let i = 1; i<= 100; i++) {
+      output += i;
+    }
+    console.log(`1~100까지 숫자를 모두 더하면 ${output}입니다.`)
+
+    for (let i = 0; i < todos.length; i++) {
+      console.log(`${i}번째 할 일: ${todos[i]}`);
+    }
+
+    for (let i = todos.length; i >= 0; i--) {
+      console.log(`${i}번째 할 일: ${todos[i]}`);
+    }
+    //while문을 이용한 반복
+
+    //break 키워드를 이용한 반복문 종료
+    for (let i = 0; true; i++) {
+      alert(i + '번째 반복문입니다.');
+
+      const isContinue = confirm('계속 하시겠습니까?');
+      if (!isContinue) {
+        break;
+      }
+    }
+    alert('프로그램종료')
+
+    //1부터 10가지 짝수 더하기
+    let output2 = 0;
+
+    for (let i = 1 ; i <= 10; i++) {
+
+      if(i%2 === 1) {
+        continue;
+      }
+      output2 += i;
+    }
+
+    alert(output2);
+
+  </script>
+  
+</body>
+</html>

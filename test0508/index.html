@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <h1></h1>
+  <script>
+    function 함수() {
+      console.log('함수 내부의 코드입니다. 1')
+      console.log('함수 내부의 코드입니다. 2')
+      console.log('함수 내부의 코드입니다. 3');
+    }
+    함수();
+    console.log(typeof 함수);
+    console.log(함수);
+    document.querySelector('h1').innerHTML = "텍스트";
+
+    function f(x) {
+      return x*x;
+    }
+    console.log(f(3));
+    
+    function sumAll(a, b) {
+      let output = 0;
+      for (let i = a; i<=b; i++) {
+        output += i;
+      }
+      return output;
+    }
+    console.log(sumAll(10,20));
+    document.querySelector('h1').innerHTML = `1부터 100까지의 합은 ${sumAll(1, 100)}입니다.`;
+
+    function min(array) {
+      let output = array[0];
+      for (const item of array) {
+        if (output > item) {
+          output = item;
+        }
+      }
+      return output;
+    }
+
+    const testArray = [52,273,32,103,275,24,57];
+    console.log(`${testArray}중에서`);
+    console.log(`최소값 = ${min(testArray)}`);
+  </script>
+</body>
+</html>

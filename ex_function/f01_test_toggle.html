@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    body {
+      background-image: repeating-linear-gradient(
+        45deg, rgb(204, 227, 236), rgb(204, 227, 236) 20px, 
+        rgb(189, 214, 223) 20px, rgb(189, 214, 223) 40px );
+      height: 100vh;
+    }
+    h1 {
+      transition: 1s;
+    }
+    h1, h2, h3 {
+      text-align: center;
+      padding: 60px;
+    }
+  </style>
+</head>
+<body>
+  <h1>배경색바꾸기</h1>
+  <h2>배경색바꾸기</h2>
+  <h3 onclick="backColor()">배경색바꾸기</h3>
+  
+  <script>
+    let toggle1,toggle2, toggle3 = 0;
+    document.querySelector('h1').onclick = function() {
+      if (toggle1 === 1) {
+        document.querySelector('h1').style.backgroundColor = 'transparent';
+        toggle1 = 0;
+      } else {
+        document.querySelector('h1').style.backgroundColor = 'skyblue';
+        toggle1 = 1;
+      }
+    } 
+    document.querySelector('h2').addEventListener('click', function() {
+      if (toggle2 === 1) {
+        document.querySelector('h2').style.backgroundColor = 'transparent';
+        toggle2 = 0;
+      } else {
+        document.querySelector('h2').style.backgroundColor = 'orange';
+        toggle2 = 1;
+      }
+    })
+    function backColor () {
+      if (toggle3 === 1) {
+        document.querySelector('h3').style.backgroundColor = 'transparent';
+        toggle3 = 0;
+
+      } else {
+        document.querySelector('h3').style.backgroundColor = 'darkorange';
+        toggle3 = 1;
+
+      }
+    }
+  </script>
+</body>
+</html>

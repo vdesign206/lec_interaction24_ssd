@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.8/ScrollMagic.min.js" integrity="sha512-8E3KZoPoZCD+1dgfqhPbejQBnQfBXe8FuwL4z/c8sTrgeDMFEnoyTlH3obB4/fV+6Sg0a0XF+L/6xS4Xx1fUEg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+  <style>
+    body {
+      margin: 0;
+    }
+    .container {
+      position: relative;
+      width: 1200px;
+      height: 100vh;
+      padding: 20px;
+      margin: auto;
+      background-color: skyblue;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .section:nth-child(even) {
+      background-color: lightslategray;
+    }
+    h1 {color: white;
+      font-size: 150px;
+      position: absolute;
+      top: 0;
+
+      margin: 0;
+      will-change: transform;
+    }
+    .box {
+      width: 100px;
+      height: 100px;
+      margin: 10px;
+      background-color: lightyellow;
+    }
+    .back-to-position {
+      opacity: 0;
+      transition: 1s;
+    }
+    .back-to-position.to-right {
+      transform: translateX(-150px);
+    }
+    .back-to-position.to-left {
+      transform: translateX(150px);
+    }
+    .show .back-to-position {
+      opacity: 1;
+      transform: translateX(0);
+    }
+    .show .back-to-position.delay-0 {
+      transition-delay: 0s;
+    }
+    .show .back-to-position.delay-1 {
+      transition-delay: .3s;
+    }
+
+  </style>
+</head>
+<body>
+  <section class="section scroll-spy">
+    <div class="container home">
+      <h1 class="title__home">Home</h1>
+      <div class="box back-to-position to-right delay-0"></div>
+      <div class="box back-to-position to-left delay-1"></div>
+    </div>
+  </section>
+  <section class="section scroll-spy">
+    <div class="container about">
+      <h1 class="title__about">About</h1>
+      <div class="box back-to-position to-right delay-0"></div>
+      <div class="box back-to-position to-left delay-1"></div>
+    </div>
+  </section>
+  <section class="section scroll-spy">
+    <div class="container skills">
+      <h1 class="title__skills">Skills</h1>
+      <div class="box back-to-position to-right delay-0"></div>
+      <div class="box back-to-position to-left delay-1"></div>
+    </div>
+  </section>
+  <section class="section scroll-spy">
+    <div class="container works">
+      <h1 class="title__works">Works</h1>
+      <div class="box back-to-position to-right delay-0"></div>
+      <div class="box back-to-position to-left delay-1"></div>
+    </div>
+  </section>
+  <section class="section scroll-spy">
+    <div class="container contact">
+      <h1 class="title__contact">Contact</h1>
+      <div class="box back-to-position to-right delay-0"></div>
+      <div class="box back-to-position to-left delay-1"></div>
+    </div>
+  </section>
+  <script>
+    const spyEls = document.querySelectorAll('section.scroll-spy');
+    const controller = new ScrollMagic.Controller();
+
+    spyEls.forEach(function (spyEl) {
+      new ScrollMagic
+      .Scene({triggerElement: spyEl})
+      .setClassToggle(spyEl, 'show')
+      .addTo(controller)
+    })
+
+    const home = document.querySelector('.scroll-spy .home');
+    const about = document.querySelector('.scroll-spy .about');
+    const skills = document.querySelector('.scroll-spy .skills');
+    const works = document.querySelector('.scroll-spy .works');
+    const contact = document.querySelector('.scroll-spy .contact');
+    const titleHome = document.querySelector('.title__home');
+    const titleAbout = document.querySelector('.title__about');
+    const titleSkills = document.querySelector('.title__skills');
+    const titleWorks = document.querySelector('.title__works');
+    const titleContact = document.querySelector('.title__contact');
+
+    gsap.from(titleHome, {
+      duration: 2,
+      scale: .3,
+      ease: "bounce.out",
+      opacity: 0,
+      scrollTrigger: {
+                trigger: home,
+                start: "top center",
+                // markers: true,
+
+            }
+    })
+    gsap.from(titleAbout, {
+      duration: 2,
+      scale: .3,
+      ease: "bounce.out",
+      opacity: 0,
+      scrollTrigger: {
+                trigger: about,
+                start: "top center",
+                // markers: true,
+                toggleActions: "restart none none none"
+            }
+    })
+
+    gsap.from(titleSkills, {
+      duration: 2,
+      scale: .3,
+      ease: "bounce.out",
+      opacity: 0,
+      scrollTrigger: {
+                trigger: skills,
+                start: "top center",
+                // scrub: true,
+            }
+    })
+    gsap.from(titleWorks, {
+      duration: 2,
+      scale: .3,
+      ease: "bounce.out",
+      opacity: 0,
+      scrollTrigger: {
+                trigger: works,
+                start: "top 70%",
+                end: "40% 30%",
+                markers: true,
+                toggleActions: "restart none restart none"
+            }
+    })
+    gsap.from(titleContact, {
+      duration: 2,
+      scale: .3,
+      ease: "bounce.out",
+      opacity: 0,
+      scrollTrigger: {
+                trigger: contact,
+                start: "top center",
+                toggleActions: "restart none none none"
+            }
+    })
+
+    
+  </script>
+  
+</body>
+</html>
